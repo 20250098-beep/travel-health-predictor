@@ -15,8 +15,15 @@ st.write("여행지의 기상 조건과 뎅기열 발생 데이터를 분석합�
 # 학습된 모델 불러오기
 try:
     저장정보 = joblib.load("여행자_건강위험_모델.pkl")
-    모델 = 저장정보["model"]
-    특징목록 = 저장정보["features"]
+
+st.write("저장된 자료의 종류:", type(저장정보).__name__)
+
+if isinstance(저장정보, dict):
+    st.write("저장된 항목:", list(저장정보.keys()))
+else:
+    st.write("저장된 자료는 딕셔너리가 아닙니다.")
+
+st.stop()
 except Exception as e:
     st.error(f"오류 종류: {type(e).__name__}")
     st.error(f"상세 내용: {repr(e)}")
