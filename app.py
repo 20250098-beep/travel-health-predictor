@@ -17,8 +17,8 @@ try:
     저장정보 = joblib.load("여행자_건강위험_모델.pkl")
     모델 = 저장정보["model"]
     특징목록 = 저장정보["features"]
-except Exception:
-    st.error("예측 모델 파일을 불러오지 못했습니다. GitHub에 모델 파일이 있는지 확인해 주세요.")
+except Exception as e:
+    st.error(f"모델 불러오기 오류: {e}")
     st.stop()
 
 # 모델 학습에 사용한 국가 목록 추출
