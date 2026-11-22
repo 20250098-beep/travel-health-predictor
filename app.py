@@ -18,8 +18,11 @@ try:
     모델 = 저장정보["model"]
     특징목록 = 저장정보["features"]
 except Exception as e:
-    st.error(f"모델 불러오기 오류: {e}")
+    st.error(f"오류 종류: {type(e).__name__}")
+    st.error(f"상세 내용: {repr(e)}")
+    st.write("저장소 파일 목록:", __import__("os").listdir("."))
     st.stop()
+
 
 # 모델 학습에 사용한 국가 목록 추출
 국가특징 = [f for f in 특징목록 if f.startswith("Country_")]
