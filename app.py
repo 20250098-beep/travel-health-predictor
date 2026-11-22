@@ -36,4 +36,4 @@ try:
 
 except Exception as e:
     st.error("모델 읽기 오류")
-    st.code(repr(e))
+    st.exception(e)
